@@ -23,6 +23,7 @@ public class Solution {
         }
         ldr(root.left);
         rs.add(root.val);
+        System.out.println(root.val);
         ldr(root.right);
         return rs;
     }

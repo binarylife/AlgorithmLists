@@ -21,15 +21,13 @@ public class WaitOrNotifyMain {
             for (int i = 0; i < 10; i++) {
                 //  模拟生产耗时3s
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
 
                 synchronized (Lock) {
-
-
                     while (count == 10) {
                         try {
                             Lock.wait();
@@ -54,10 +52,10 @@ public class WaitOrNotifyMain {
 
         @Override
         public void run() {
-            for (int i = 0; i < 10;) {
+            for (int i = 0; i < 10; i++) {
                 //  模拟生产耗时3s
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -86,7 +84,7 @@ public class WaitOrNotifyMain {
         new Thread(waitOrNotifyMain.new Producer()).start();
         new Thread(waitOrNotifyMain.new Consumer()).start();
 //        new Thread(waitOrNotifyMain.new Consumer()).start();
-        new Thread(waitOrNotifyMain.new Producer()).start();
+//        new Thread(waitOrNotifyMain.new Producer()).start();
     }
 
 }

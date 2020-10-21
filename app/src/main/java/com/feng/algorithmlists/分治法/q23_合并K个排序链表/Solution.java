@@ -103,7 +103,7 @@ public class Solution {
 //        printListNodes(ListNode01);
 //        printListNodes(ListNode10);
 
-        mergeLists(new ListNode[]{ListNode01,ListNode10});
+        mergeLists(new ListNode[]{ListNode01, ListNode10});
         printListNodes(ListNode01);
     }
 }

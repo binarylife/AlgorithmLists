@@ -12,7 +12,8 @@ package com.feng.algorithmlists.动态规划.q70_爬楼梯问题;
 public class Solution {
 
 
-    public static int climStairs(int n) {
+    public static int climStairs(int[] ints) {
+        int n = ints.length;
         if (n == 1) {
             return 1;
         }
@@ -28,4 +29,5 @@ public class Solution {
 
         return dp[n];
     }
+
 }

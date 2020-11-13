@@ -32,7 +32,7 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        int[] a = new int[]{0, 2, 2, 1};
+        int[] a = new int[]{0, 2, 2, 1,9,6};
         System.out.println(new Solution().minCostClimbingStairs(a));
         System.out.println(new Solution().minCostClimbingStairs2(a));
     }

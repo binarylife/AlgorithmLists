@@ -21,7 +21,9 @@ public class Solution {
             //  初始化dp,默认为1
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
-                if (s[j] < s[i]) {
+                if (s[j] < s[i] && dp[j] + 1 > dp[i]) {
+
+                    System.out.println("j : " + j + "   dp[j]: " + dp[j] + " i=  " + i + "   dp[i] ： " + dp[i]);
                     dp[i] = dp[j] + 1;
                 }
             }
@@ -38,7 +40,7 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        int[] ints = {10, 9, 2, 5, 3, 7, 101, 18};
+        int[] ints = {10, 9, 2, 5, 3, 7, 101, 19, 18};
         System.out.println(lis(ints));
     }
 }

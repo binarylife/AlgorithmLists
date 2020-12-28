@@ -29,8 +29,9 @@ public class Solution {
         if (length < 2) {
             return s;
         }
-        //  创建dp数组
+        //  定义状态 创建dp数组
         boolean[][] dp = new boolean[length][length];
+
 
         //最长回文子串的长度
         int maxLent = 1;
@@ -40,17 +41,22 @@ public class Solution {
         // i表示终点位置，j表示起点位置
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
-                if (i - j < 2) {
-                    //  相邻的子串
-                    dp[j][i] = chars[j] == chars[i];
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
                 } else {
-                    // 如果 [i, j] 是回文子串，那么一定有 [j+1, i-1] 也是回子串
-                    dp[j][i] = dp[j + 1][i - 1] && chars[j] == chars[i];
+                    dp[i][j] = false;
                 }
 
-                if (dp[j][i] && (i - j + 1 > maxLent)) {
-                    maxLent = i - j + 1;
-                    start = j;
+                if (dp[i][j]) {
+                    int curLen = j - i + 1;
+                    if (curLen > maxLent) {
+                        maxLent = curLen;
+                        start = i;
+                    }
                 }
             }
         }

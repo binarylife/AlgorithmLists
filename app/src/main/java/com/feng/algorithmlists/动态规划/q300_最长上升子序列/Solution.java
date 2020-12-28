@@ -15,24 +15,16 @@ public class Solution {
             return 0;
         }
 
-        int[] dp = new int[s.length];
-
-        for (int i = 0; i < s.length; i++) {
-            //  初始化dp,默认为1
+        int len = s.length;
+        int max = 0;
+        int[] dp = new int[len];
+        for (int i = 0; i < len; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
-                if (s[j] < s[i] && dp[j] + 1 > dp[i]) {
-
-                    System.out.println("j : " + j + "   dp[j]: " + dp[j] + " i=  " + i + "   dp[i] ： " + dp[i]);
+                if (s[i] > s[j] && dp[j] + 1 > dp[i]) {
                     dp[i] = dp[j] + 1;
                 }
             }
-        }
-
-
-        //  遍历dp[]找到最大值
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < s.length; i++) {
             max = Math.max(max, dp[i]);
         }
         return max;
@@ -43,4 +35,22 @@ public class Solution {
         int[] ints = {10, 9, 2, 5, 3, 7, 101, 19, 18};
         System.out.println(lis(ints));
     }
+
+
+//    j : 2   dp[j]: 1 i=  3   dp[i] ： 2
+//    j : 2   dp[j]: 1 i=  4   dp[i] ： 2
+//    j : 2   dp[j]: 1 i=  5   dp[i] ： 2
+//    j : 3   dp[j]: 2 i=  5   dp[i] ： 3
+//    j : 0   dp[j]: 1 i=  6   dp[i] ： 2
+//    j : 3   dp[j]: 2 i=  6   dp[i] ： 3
+//    j : 5   dp[j]: 3 i=  6   dp[i] ： 4
+//    j : 0   dp[j]: 1 i=  7   dp[i] ： 2
+//    j : 3   dp[j]: 2 i=  7   dp[i] ： 3
+//    j : 5   dp[j]: 3 i=  7   dp[i] ： 4
+//    j : 0   dp[j]: 1 i=  8   dp[i] ： 2
+//    j : 3   dp[j]: 2 i=  8   dp[i] ： 3
+//    j : 5   dp[j]: 3 i=  8   dp[i] ： 4
+//            4
+
+
 }
